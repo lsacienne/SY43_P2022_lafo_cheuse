@@ -45,6 +45,7 @@
                 android:layout_gravity="bottom">
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/helloNameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter"
@@ -68,11 +69,12 @@
                         android:layout_margin="4dp">
 
                         <ProgressBar
+                            android:id="@+id/total_progress_bar"
                             style="?android:progressBarStyleHorizontal"
                             android:layout_width="110dp"
                             android:layout_height="110dp"
                             android:layout_centerInParent="true"
-                            android:progress="65"
+                            android:progress="0"
                             android:progressDrawable="@drawable/complete_progress_bar" />
 
                         <RelativeLayout
@@ -85,7 +87,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_above="@id/moneyDivider"
                                 android:layout_centerInParent="true"
-                                android:text="125 €"
+                                android:text="0 €"
                                 android:textAlignment="center"
                                 android:textColor="@color/blue"
                                 android:textSize="20sp"
@@ -104,7 +106,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/moneyDivider"
                                 android:layout_centerInParent="true"
-                                android:text="230 €"
+                                android:text="100 €"
                                 android:textAlignment="center"
                                 android:textColor="@color/light_blue"
                                 android:textSize="16sp"
@@ -160,7 +162,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="top">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
@@ -177,9 +180,22 @@
                 <GridView
                     android:layout_marginHorizontal="2dp"
                     android:id="@+id/categories_grid_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:numColumns="3"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/newCategoryBtn"
+                    android:layout_width="225dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/light_green"
+                    android:text="New category"
+                    android:textSize="40px"
+                    android:textStyle="bold"
+                    app:cornerRadius="25px"
+                    android:layout_gravity="center"
                     />
 
             </LinearLayout>

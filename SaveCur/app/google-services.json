@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "897629057082",
+    "project_id": "savecur-13dde",
+    "storage_bucket": "savecur-13dde.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897629057082:android:4debc7a2976f0468710503",
+        "android_client_info": {
+          "package_name": "com.sy43.savecur"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897629057082-r1b12khn9ld6hc5ab50delpa7ddqnir9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaCayYqM7I-aRRNPwNqt0BY4tyuAImXDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897629057082-r1b12khn9ld6hc5ab50delpa7ddqnir9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

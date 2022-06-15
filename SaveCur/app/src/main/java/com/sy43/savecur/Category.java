@@ -2,15 +2,15 @@ package com.sy43.savecur;
 
 public class Category {
     private final String name;
-    private int moneySpent;
-    private int moneyLimit;
-    private int id;
+    private float moneySpent;
+    private float moneyLimit;
+    private String id;
 
-    public int getMoneyLimit() {
+    public float getMoneyLimit() {
         return moneyLimit;
     }
 
-    public int getMoneySpent() {
+    public float getMoneySpent() {
         return moneySpent;
     }
 
@@ -19,20 +19,20 @@ public class Category {
     }
 
     public int getProgress() {
-        return (moneySpent * 100) / moneyLimit;
+        return (int)((moneySpent * 100) / moneyLimit);
     }
 
-    public int getId() { return id; }
+    public String getId() { return id; }
 
-    public void setMoneyLimit(int moneyLimit) {
+    public void setMoneyLimit(float moneyLimit) {
         this.moneyLimit = moneyLimit;
     }
 
-    public void setMoneySpent(int moneySpent) {
+    public void setMoneySpent(float moneySpent) {
         this.moneySpent = moneySpent;
     }
 
-    public Category(String name, int moneyLimit, int moneySpent, int id) {
+    public Category(String name, float moneyLimit, float moneySpent, String id) {
         this.name = name;
         this.moneyLimit = moneyLimit;
         this.moneySpent = moneySpent;

@@ -1,15 +1,40 @@
 package com.sy43.savecur;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ProgressBar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CategoryEditActivity extends AppCompatActivity {
+
+    FirebaseUser currentUser;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,20 +47,53 @@ public class CategoryEditActivity extends AppCompatActivity {
         TextInputEditText moneySpentTextField = (TextInputEditText) findViewById(R.id.categoryMoney);
         TextInputEditText moneyLimitTextField = (TextInputEditText) findViewById(R.id.categoryMoneyLimit);
 
-        nameTextField.setText(extras.getString("name"));
-        moneySpentTextField.setText(String.valueOf(extras.getInt("moneySpent")));
-        moneyLimitTextField.setText(String.valueOf(extras.getInt("moneyLimit")));
+        if (extras != null) {
+            nameTextField.setText(extras.getString("name"));
+            moneySpentTextField.setText(String.valueOf(extras.getInt("moneySpent")));
+            moneyLimitTextField.setText(String.valueOf(extras.getInt("moneyLimit")));
+        }
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        db = FirebaseFirestore.getInstance();
 
         Button applyChangesBtn = (Button) findViewById(R.id.applyCategoryChanges);
-        Intent intent = new Intent(this, HomeActivity.class);
+
         applyChangesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("name", nameTextField.getText().toString());
-                intent.putExtra("moneySpent", Integer.parseInt(moneySpentTextField.getText().toString()));
-                intent.putExtra("moneyLimit", Integer.parseInt(moneyLimitTextField.getText().toString()));
+                if (extras != null) {
 
-                startActivity(intent);
+                } else {
+                    Map<String, Object> category = new HashMap<>();
+                    category.put("name", nameTextField.getText().toString());
+                    category.put("moneySpent", Float.parseFloat(moneySpentTextField.getText().toString()));
+                    category.put("moneyLimit", Float.parseFloat(moneyLimitTextField.getText().toString()));
+
+                    db.collection("users").document(currentUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            task.getResult().getReference().collection("categories").add(category)
+                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Log.d("req", "DocumentSnapshot added with ID: " + documentReference.getId());
+
+                                    Intent intent = new Intent(CategoryEditActivity.this, HomeActivity.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w("req", "Error adding document", e);
+                                }
+                            });
+
+                        }
+                    });
+                }
+
             }
         });
     }
