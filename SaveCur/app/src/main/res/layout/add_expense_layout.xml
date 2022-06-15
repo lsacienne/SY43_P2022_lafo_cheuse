@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Add an expense"
+            android:textStyle="bold"
+            android:textSize="10pt"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expenseName"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:hint="Name (optional)"
+            android:layout_marginTop="40dp"
+            android:drawableStart="@drawable/ic_baseline_assignment_24"
+            />
+
+        <Spinner
+            android:id="@+id/category_spinner"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:spinnerMode="dropdown"
+            />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expenseAmount"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:hint="Amount"
+            android:inputType="numberDecimal"
+            android:drawableStart="@drawable/ic_baseline_attach_money_24"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/confirmExpenseAddBtn"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#62AD62"
+            android:text="Add"
+            android:textSize="40px"
+            android:textStyle="bold"
+            app:cornerRadius="25px"
+            android:onClick="onRegisterBtnClicked"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

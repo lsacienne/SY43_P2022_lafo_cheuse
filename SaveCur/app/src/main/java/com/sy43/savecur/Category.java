@@ -4,6 +4,7 @@ public class Category {
     private final String name;
     private int moneySpent;
     private int moneyLimit;
+    private int id;
 
     public int getMoneyLimit() {
         return moneyLimit;
@@ -21,6 +22,8 @@ public class Category {
         return (moneySpent * 100) / moneyLimit;
     }
 
+    public int getId() { return id; }
+
     public void setMoneyLimit(int moneyLimit) {
         this.moneyLimit = moneyLimit;
     }
@@ -29,9 +32,10 @@ public class Category {
         this.moneySpent = moneySpent;
     }
 
-    public Category(String name, int moneyLimit, int moneySpent) {
+    public Category(String name, int moneyLimit, int moneySpent, int id) {
         this.name = name;
         this.moneyLimit = moneyLimit;
         this.moneySpent = moneySpent;
+        this.id = id;
     }
 }

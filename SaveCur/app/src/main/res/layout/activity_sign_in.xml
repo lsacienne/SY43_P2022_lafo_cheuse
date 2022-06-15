@@ -6,64 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".FirstActivity">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="135dp"
-        android:src="@drawable/logo" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/EmailInput"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/logo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        app:cornerRadius="25px"
-        android:hint="@string/TextEmail"
-        android:drawableStart="@drawable/ic_baseline"
-        />
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:src="@drawable/logo"
+            />
 
-    <EditText
-        android:id="@+id/PasswordInput"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
-        android:inputType="textPassword"
-        android:layout_below="@+id/EmailInput"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        app:cornerRadius="25px"
-        android:hint="@string/PasswordText"
-        android:drawableStart="@drawable/ic_password"
-        />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/EmailInput"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:hint="@string/TextEmail"
+            android:drawableStart="@drawable/ic_baseline"
+            />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text"
-        android:layout_width="147dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/PasswordInput"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Forgot Password ? Click here"
-        android:textSize="10dp"
-        android:shadowColor="@color/dark_green"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/PasswordInput"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:inputType="textPassword"
+            android:layout_marginTop="35dp"
+            android:hint="@string/PasswordText"
+            android:drawableStart="@drawable/ic_password"
+            />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/signInBtn"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/PasswordInput"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="#62AD62"
-        android:onClick="onSignInBtnClicked"
-        android:text="Sign in"
-        android:textSize="40px"
-        android:textStyle="bold"
-        app:cornerRadius="25px" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text"
+            android:layout_width="147dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Forgot Password ? Click here"
+            android:textSize="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signInBtn"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#62AD62"
+            android:onClick="onSignInBtnClicked"
+            android:text="Sign in"
+            android:textSize="40px"
+            android:textStyle="bold"
+            app:cornerRadius="25px" />
+
+    </LinearLayout>
+
 
 
 </RelativeLayout>

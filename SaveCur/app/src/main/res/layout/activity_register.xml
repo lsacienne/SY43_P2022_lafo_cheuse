@@ -7,86 +7,79 @@
     tools:context=".FirstActivity">
 
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="134dp"
-        android:src="@drawable/logo" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/NameInput"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:drawableStart="@drawable/ic_name"
-        android:hint="@string/TextName"
-        app:cornerRadius="25px" />
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:src="@drawable/logo" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/emailInput"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/NameInput"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:hint="@string/TextEmail"
-        app:cornerRadius="25px"
-        android:drawableStart="@drawable/ic_baseline"
-        />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameInput"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:drawableStart="@drawable/ic_name"
+            android:hint="@string/TextName"
+            />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/PasswordInput"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/emailInput"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:hint="@string/PasswordText"
-        android:inputType="textPassword"
-        app:cornerRadius="25px"
-        android:drawableStart="@drawable/ic_password"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailInput"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:hint="@string/TextEmail"
+            android:drawableStart="@drawable/ic_baseline"
+            />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/companyNameInput"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/StatusSelection"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:drawableStart="@drawable/ic_company"
-        android:hint="@string/CompanyName"
-        android:inputType="textPassword"
-        app:cornerRadius="25px" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordInput"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:hint="@string/PasswordText"
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/ic_password"/>
 
-    <Spinner
-        android:id="@+id/StatusSelection"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/PasswordInput"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:entries="@array/ListeRegister"
-        android:spinnerMode="dropdown"
-        android:outlineAmbientShadowColor="@color/dark_green"/>
+        <Spinner
+            android:id="@+id/statusSelection"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:entries="@array/listRegister"
+            android:spinnerMode="dropdown"
+            />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/registerBtnBtn"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/companyNameInput"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#62AD62"
-        android:text="Register"
-        android:textSize="40px"
-        android:textStyle="bold"
-        app:cornerRadius="25px"
-        android:onClick="onRegisterBtnClicked"
-        />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/companyNameInput"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:drawableStart="@drawable/ic_company"
+            android:hint="@string/CompanyName"
+            android:inputType="textPassword"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/registerBtnBtn"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#62AD62"
+            android:text="Register"
+            android:textSize="40px"
+            android:textStyle="bold"
+            app:cornerRadius="25px"
+            android:onClick="onRegisterBtnClicked"
+            />
+    </LinearLayout>
+
 
 
 </RelativeLayout>
