@@ -18,7 +18,18 @@
             android:layout_width="match_parent"
             android:layout_height="128dp"
             android:src="@drawable/logo"
+            android:layout_marginBottom="50dp"
             />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/errorSignInText"
+            android:layout_width="350dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="25dp"
+            android:text="Error while trying to sign in, please try again"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            android:visibility="gone"/>
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/EmailInput"
@@ -27,7 +38,6 @@
             android:layout_below="@+id/logo"
             android:layout_centerHorizontal="true"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="50dp"
             android:hint="@string/TextEmail"
             android:drawableStart="@drawable/ic_baseline"
             />

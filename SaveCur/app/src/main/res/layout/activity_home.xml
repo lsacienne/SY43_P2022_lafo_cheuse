@@ -172,22 +172,22 @@
                             android:id="@+id/lastExpenseText1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Party : 10€ (vodka)"/>
+                            android:text="---"/>
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/lastExpenseText2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Party : 10€ (vodka)"/>
+                            android:text="---"/>
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/lastExpenseText3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Party : 10€ (vodka)"/>
+                            android:text="---"/>
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/lastExpenseText4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Party : 10€ (vodka)"/>
+                            android:text="---"/>
 
 
                     </LinearLayout>

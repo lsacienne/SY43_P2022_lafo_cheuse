@@ -32,6 +32,8 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -100,7 +102,9 @@ public class HomeActivity extends AppCompatActivity {
                         Map<String, Object> data = document.getData();
 
                         if (data.get("category") == null) continue;
-                        lastExpensesStrings[i] = data.get("category").toString() + " : " + data.get("amount") + "€ (" + data.get("name") + ")";
+                        DecimalFormat df = new DecimalFormat("#.##");
+                        df.setRoundingMode(RoundingMode.CEILING);
+                        lastExpensesStrings[i] = data.get("category").toString() + " : " + df.format(Float.parseFloat(data.get("amount").toString())) + "€ (" + data.get("name").toString() + ")";
                         i++;
                     }
 

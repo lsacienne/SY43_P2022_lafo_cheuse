@@ -50,7 +50,7 @@ public class AddExpenseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = ((TextInputEditText) findViewById(R.id.expenseName)).getText().toString();
-                int amount = Integer.parseInt(((TextInputEditText) findViewById(R.id.expenseAmount)).getText().toString());
+                float amount = Float.parseFloat(((TextInputEditText) findViewById(R.id.expenseAmount)).getText().toString());
                 int selectedCategoryPos = categorySpinner.getSelectedItemPosition();
 
                 FirebaseAuth mAuth = FirebaseAuth.getInstance();

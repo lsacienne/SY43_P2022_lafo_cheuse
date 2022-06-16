@@ -12,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -92,26 +94,26 @@ public class RegisterActivity extends AppCompatActivity {
                     Map<String, Object> category5 = new HashMap<>();
 
                     if(choix == 0){
-                        category1.put("name", "Salaires");
+                        category1.put("name", "Wage");
                         category1.put("moneySpent", 0);
                         category1.put("moneyLimit", 3000);
-                        category2.put("name", "Locaux");
+                        category2.put("name", "Rent");
                         category2.put("moneySpent", 0);
                         category2.put("moneyLimit", 1500);
-                        category3.put("name", "Frais");
+                        category3.put("name", "Tax");
                         category3.put("moneySpent", 0);
                         category3.put("moneyLimit", 1000);
-                        category4.put("name", "Frais déplacement");
+                        category4.put("name", "Traveling");
                         category4.put("moneySpent", 0);
                         category4.put("moneyLimit", 500);
-                        category5.put("name", "Frais d'outillage'");
+                        category5.put("name", "Tools");
                         category5.put("moneySpent", 0);
                         category5.put("moneyLimit", 500);
                     }else{
-                        category1.put("name", "Loyer");
+                        category1.put("name", "Rent");
                         category1.put("moneySpent", 0);
                         category1.put("moneyLimit", 1500);
-                        category2.put("name", "Nourriture");
+                        category2.put("name", "Food");
                         category2.put("moneySpent", 0);
                         category2.put("moneyLimit", 500);
                         category3.put("name", "Sport");
@@ -120,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
                         category4.put("name", "Culture");
                         category4.put("moneySpent", 0);
                         category4.put("moneyLimit", 100);
-                        category5.put("name", "Culture");
+                        category5.put("name", "Party");
                         category5.put("moneySpent", 0);
                         category5.put("moneyLimit", 300);
                     }
@@ -143,6 +145,9 @@ public class RegisterActivity extends AppCompatActivity {
                     });
                 } else {
                     Log.w("Auth", task.getException());
+
+                    MaterialTextView errorRegisterTextView = (MaterialTextView) findViewById(R.id.errorRegisterText);
+                    errorRegisterTextView.setVisibility(View.VISIBLE);
                 }
             }
         });

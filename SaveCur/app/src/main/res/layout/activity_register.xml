@@ -10,43 +10,50 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center"
-        >
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="match_parent"
             android:layout_height="128dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:layout_marginBottom="50dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/errorRegisterText"
+            android:layout_width="350dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="25dp"
+            android:text="Error while trying to register, please try again"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            android:visibility="gone"/>
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nameInput"
             android:layout_width="225dp"
             android:layout_height="50dp"
-            android:layout_marginTop="25dp"
             android:drawableStart="@drawable/ic_name"
-            android:hint="@string/TextName"
-            />
+            android:hint="@string/TextName" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailInput"
             android:layout_width="225dp"
             android:layout_height="50dp"
             android:layout_marginTop="25dp"
-            android:hint="@string/TextEmail"
-            android:inputType="textEmailAddress"
             android:drawableStart="@drawable/ic_baseline"
-            />
+            android:hint="@string/TextEmail"
+            android:inputType="textEmailAddress" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordInput"
             android:layout_width="225dp"
             android:layout_height="50dp"
             android:layout_marginTop="25dp"
+            android:drawableStart="@drawable/ic_password"
             android:hint="@string/PasswordText"
-            android:inputType="textPassword"
-            android:drawableStart="@drawable/ic_password"/>
+            android:inputType="textPassword" />
 
         <Spinner
             android:id="@+id/statusSelection"
@@ -54,8 +61,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="25dp"
             android:entries="@array/listRegister"
-            android:spinnerMode="dropdown"
-            />
+            android:spinnerMode="dropdown" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/companyNameInput"
@@ -63,8 +69,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="25dp"
             android:drawableStart="@drawable/ic_company"
-            android:hint="@string/CompanyName"
-            />
+            android:hint="@string/CompanyName" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/registerBtnBtn"
@@ -72,12 +77,11 @@
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="#62AD62"
+            android:onClick="onRegisterBtnClicked"
             android:text="Register"
             android:textSize="40px"
             android:textStyle="bold"
-            app:cornerRadius="25px"
-            android:onClick="onRegisterBtnClicked"
-            />
+            app:cornerRadius="25px" />
     </LinearLayout>
 
 
