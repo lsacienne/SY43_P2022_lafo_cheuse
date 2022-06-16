@@ -57,7 +57,7 @@
             android:textSize="40px"
             android:textStyle="bold"
             app:cornerRadius="25px"
-            android:onClick="onRegisterBtnClicked"
+            android:onClick="confirmAddExpenseClick"
             />
 
     </LinearLayout>

@@ -46,11 +46,12 @@ public class CategoryEditActivity extends AppCompatActivity {
         TextInputEditText nameTextField = (TextInputEditText) findViewById(R.id.categoryName);
         TextInputEditText moneySpentTextField = (TextInputEditText) findViewById(R.id.categoryMoney);
         TextInputEditText moneyLimitTextField = (TextInputEditText) findViewById(R.id.categoryMoneyLimit);
+        String categoryID = extras.getString("categoryID");
 
         if (extras != null) {
             nameTextField.setText(extras.getString("name"));
-            moneySpentTextField.setText(String.valueOf(extras.getInt("moneySpent")));
-            moneyLimitTextField.setText(String.valueOf(extras.getInt("moneyLimit")));
+            moneySpentTextField.setText(String.valueOf(extras.getFloat("moneySpent")));
+            moneyLimitTextField.setText(String.valueOf(extras.getFloat("moneyLimit")));
         }
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -62,14 +63,21 @@ public class CategoryEditActivity extends AppCompatActivity {
         applyChangesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Map<String, Object> category = new HashMap<>();
+                category.put("name", nameTextField.getText().toString());
+                category.put("moneySpent", Float.parseFloat(moneySpentTextField.getText().toString()));
+                category.put("moneyLimit", Float.parseFloat(moneyLimitTextField.getText().toString()));
                 if (extras != null) {
+                    db.collection("users").document(currentUser.getUid()).collection("categories").document(categoryID)
+                            .update(category).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
 
+                                    Intent intent = new Intent(CategoryEditActivity.this, HomeActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
                 } else {
-                    Map<String, Object> category = new HashMap<>();
-                    category.put("name", nameTextField.getText().toString());
-                    category.put("moneySpent", Float.parseFloat(moneySpentTextField.getText().toString()));
-                    category.put("moneyLimit", Float.parseFloat(moneyLimitTextField.getText().toString()));
-
                     db.collection("users").document(currentUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {

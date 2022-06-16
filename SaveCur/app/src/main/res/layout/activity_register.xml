@@ -63,7 +63,6 @@
             android:layout_marginTop="25dp"
             android:drawableStart="@drawable/ic_company"
             android:hint="@string/CompanyName"
-            android:inputType="textPassword"
             />
 
         <com.google.android.material.button.MaterialButton

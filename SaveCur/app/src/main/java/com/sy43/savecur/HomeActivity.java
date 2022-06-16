@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -38,6 +40,23 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.leaveBtn) {
+            mAuth.signOut();
+            startActivity(new Intent(HomeActivity.this, FirstActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +134,7 @@ public class HomeActivity extends AppCompatActivity {
                                     editCategoryIntent.putExtra("name", categories.get(position).getName());
                                     editCategoryIntent.putExtra("moneySpent", categories.get(position).getMoneySpent());
                                     editCategoryIntent.putExtra("moneyLimit", categories.get(position).getMoneyLimit());
+                                    editCategoryIntent.putExtra("categoryID", categories.get(position).getId());
 
                                     startActivity(editCategoryIntent);
                                 }
@@ -124,10 +144,13 @@ public class HomeActivity extends AppCompatActivity {
                             Intent addExpenseIntent = new Intent(HomeActivity.this, AddExpenseActivity.class);
 
                             ArrayList<String> categoryNameList = new ArrayList<>();
+                            ArrayList<String> categoryIdList = new ArrayList<>();
                             for (int i = 0; i < categories.size(); i++) {
                                 categoryNameList.add(categories.get(i).getName());
+                                categoryIdList.add(categories.get(i).getId());
                             }
                             addExpenseIntent.putStringArrayListExtra("categories", categoryNameList);
+                            addExpenseIntent.putStringArrayListExtra("categoriesIDs", categoryIdList);
 
                             addExpenseBtn.setOnClickListener(new View.OnClickListener() {
                                 @Override
