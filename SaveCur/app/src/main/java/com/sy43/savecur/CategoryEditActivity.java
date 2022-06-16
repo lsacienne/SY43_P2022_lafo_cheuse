@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
@@ -46,20 +47,22 @@ public class CategoryEditActivity extends AppCompatActivity {
         TextInputEditText nameTextField = (TextInputEditText) findViewById(R.id.categoryName);
         TextInputEditText moneySpentTextField = (TextInputEditText) findViewById(R.id.categoryMoney);
         TextInputEditText moneyLimitTextField = (TextInputEditText) findViewById(R.id.categoryMoneyLimit);
-        String categoryID = extras.getString("categoryID");
+        String categoryID = "";
 
         if (extras != null) {
             nameTextField.setText(extras.getString("name"));
             moneySpentTextField.setText(String.valueOf(extras.getFloat("moneySpent")));
             moneyLimitTextField.setText(String.valueOf(extras.getFloat("moneyLimit")));
+            categoryID = extras.getString("categoryID");
         }
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
 
-        Button applyChangesBtn = (Button) findViewById(R.id.applyCategoryChanges);
+        MaterialButton applyChangesBtn = (MaterialButton) findViewById(R.id.applyCategoryChanges);
 
+        String finalCategoryID = categoryID;
         applyChangesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +71,7 @@ public class CategoryEditActivity extends AppCompatActivity {
                 category.put("moneySpent", Float.parseFloat(moneySpentTextField.getText().toString()));
                 category.put("moneyLimit", Float.parseFloat(moneyLimitTextField.getText().toString()));
                 if (extras != null) {
-                    db.collection("users").document(currentUser.getUid()).collection("categories").document(categoryID)
+                    db.collection("users").document(currentUser.getUid()).collection("categories").document(finalCategoryID)
                             .update(category).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
