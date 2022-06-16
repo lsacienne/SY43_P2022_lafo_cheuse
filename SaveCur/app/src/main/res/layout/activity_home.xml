@@ -138,13 +138,30 @@
                             android:layout_height="wrap_content"
                             android:text="Last expenses :"
                             android:textSize="8pt"
+                            android:textStyle="bold"
                             />
 
-                        <ListView
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lastExpenseText1"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content"
+                            android:text="Party : 10€ (vodka)"/>
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lastExpenseText2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Party : 10€ (vodka)"/>
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lastExpenseText3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Party : 10€ (vodka)"/>
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lastExpenseText4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Party : 10€ (vodka)"/>
 
-                        </ListView>
 
                     </LinearLayout>
 

@@ -23,6 +23,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private int choix;
     private FirebaseAuth mAuth;
     private Spinner statusSpinner;
     private TextInputEditText companyNameInput;
@@ -40,8 +41,13 @@ public class RegisterActivity extends AppCompatActivity {
         statusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 1) companyNameInput.setVisibility(View.INVISIBLE);
-                else companyNameInput.setVisibility(View.VISIBLE);
+                if (position == 1) {
+                    companyNameInput.setVisibility(View.INVISIBLE);
+                    choix = 1;
+                }else{
+                    companyNameInput.setVisibility(View.VISIBLE);
+                    choix = 0;
+                }
             }
 
             @Override
@@ -79,15 +85,54 @@ public class RegisterActivity extends AppCompatActivity {
 
                     String userUid = mAuth.getCurrentUser().getUid();
 
-                    Map<String, Object> category = new HashMap<>();
-                    category.put("name", "Party");
-                    category.put("moneySpent", 70);
-                    category.put("moneyLimit", 170);
+                    Map<String, Object> category1 = new HashMap<>();
+                    Map<String, Object> category2 = new HashMap<>();
+                    Map<String, Object> category3 = new HashMap<>();
+                    Map<String, Object> category4 = new HashMap<>();
+                    Map<String, Object> category5 = new HashMap<>();
+
+                    if(choix == 0){
+                        category1.put("name", "Salaires");
+                        category1.put("moneySpent", 0);
+                        category1.put("moneyLimit", 3000);
+                        category2.put("name", "Locaux");
+                        category2.put("moneySpent", 0);
+                        category2.put("moneyLimit", 1500);
+                        category3.put("name", "Frais");
+                        category3.put("moneySpent", 0);
+                        category3.put("moneyLimit", 1000);
+                        category4.put("name", "Frais déplacement");
+                        category4.put("moneySpent", 0);
+                        category4.put("moneyLimit", 500);
+                        category5.put("name", "Frais d'outillage'");
+                        category5.put("moneySpent", 0);
+                        category5.put("moneyLimit", 500);
+                    }else{
+                        category1.put("name", "Loyer");
+                        category1.put("moneySpent", 0);
+                        category1.put("moneyLimit", 1500);
+                        category2.put("name", "Nourriture");
+                        category2.put("moneySpent", 0);
+                        category2.put("moneyLimit", 500);
+                        category3.put("name", "Sport");
+                        category3.put("moneySpent", 0);
+                        category3.put("moneyLimit", 200);
+                        category4.put("name", "Culture");
+                        category4.put("moneySpent", 0);
+                        category4.put("moneyLimit", 100);
+                        category5.put("name", "Culture");
+                        category5.put("moneySpent", 0);
+                        category5.put("moneyLimit", 300);
+                    }
 
                     db.collection("users").document(userUid).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            db.collection("users").document(userUid).collection("categories").add(category).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                            db.collection("users").document(userUid).collection("categories").add(category1);
+                            db.collection("users").document(userUid).collection("categories").add(category2);
+                            db.collection("users").document(userUid).collection("categories").add(category3);
+                            db.collection("users").document(userUid).collection("categories").add(category4);
+                            db.collection("users").document(userUid).collection("categories").add(category5).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentReference> task) {
                                     db.collection("users").document(userUid).collection("expenses").add(new HashMap<>());

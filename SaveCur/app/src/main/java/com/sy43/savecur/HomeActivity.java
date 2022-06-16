@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 
@@ -80,6 +81,32 @@ public class HomeActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     MaterialTextView helloNameText = (MaterialTextView) findViewById(R.id.helloNameText);
                     helloNameText.setText("Hello, " + task.getResult().getData().get("name"));
+                }
+            }
+        });
+
+        db.collection("users").document(currentUser.getUid()).collection("expenses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+
+                    String[] lastExpensesStrings = new String[4];
+                    int i = 0;
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        if (i >= 4) break;
+
+                        Log.d("req", document.getId() + " => " + document.getData());
+                        Map<String, Object> data = document.getData();
+
+                        if (data.get("category") == null) continue;
+                        lastExpensesStrings[i] = data.get("category").toString() + " : " + data.get("amount") + "€ (" + data.get("name") + ")";
+                        i++;
+                    }
+
+                    ((MaterialTextView) findViewById(R.id.lastExpenseText1)).setText(lastExpensesStrings[0]);
+                    ((MaterialTextView) findViewById(R.id.lastExpenseText2)).setText(lastExpensesStrings[1]);
+                    ((MaterialTextView) findViewById(R.id.lastExpenseText3)).setText(lastExpensesStrings[2]);
+                    ((MaterialTextView) findViewById(R.id.lastExpenseText4)).setText(lastExpensesStrings[3]);
                 }
             }
         });
