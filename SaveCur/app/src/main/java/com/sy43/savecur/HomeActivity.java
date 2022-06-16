@@ -28,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -85,7 +86,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        db.collection("users").document(currentUser.getUid()).collection("expenses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("users").document(currentUser.getUid()).collection("expenses").orderBy("date", Query.Direction.DESCENDING).limit(5).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
@@ -117,6 +118,35 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, CategoryEditActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        MaterialButton newMonthBtn = (MaterialButton) findViewById(R.id.newMonthBtn);
+        newMonthBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.collection("users").document(currentUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        task.getResult().getReference().collection("categories").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        Log.d("req", document.getId() + " => " + document.getData());
+                                        Map<String, Object> data = document.getData();
+                                        String id = document.getId();
+
+                                        document.getReference().update("moneySpent", 0);
+                                        setCategories();
+                                    }
+                                } else {
+                                    Log.w("req", "Error getting documents.", task.getException());
+                                }
+                            }
+                        });
+                    }
+                });
             }
         });
     }
@@ -192,5 +222,9 @@ public class HomeActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    private void resetMonth() {
+
     }
 }

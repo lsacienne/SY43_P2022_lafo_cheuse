@@ -44,17 +44,44 @@
                 android:orientation="vertical"
                 android:layout_gravity="bottom">
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/helloNameText"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:paddingStart="20dp"
-                    android:paddingTop="6dp"
-                    android:text="Hello, Jacob"
-                    android:textFontWeight="900"
-                    android:textSize="26sp"
-                    tools:ignore="RtlSymmetry" />
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:id="@+id/helloNameText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
+                        android:paddingStart="20dp"
+                        android:paddingTop="6dp"
+                        android:text="Hello, Jacob"
+                        android:textFontWeight="900"
+                        android:textSize="26sp"
+                        tools:ignore="RtlSymmetry" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/newMonthBtn"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_width="140dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="@color/green"
+                        android:text="New month"
+                        android:textSize="40px"
+                        android:textStyle="bold"
+                        app:cornerRadius="25px"
+                        android:layout_gravity="center"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -71,8 +98,8 @@
                         <ProgressBar
                             android:id="@+id/total_progress_bar"
                             style="?android:progressBarStyleHorizontal"
-                            android:layout_width="110dp"
-                            android:layout_height="110dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_centerInParent="true"
                             android:progress="0"
                             android:progressDrawable="@drawable/complete_progress_bar" />

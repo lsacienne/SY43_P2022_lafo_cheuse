@@ -26,6 +26,7 @@
             android:layout_height="50dp"
             android:layout_below="@+id/logo"
             android:layout_centerHorizontal="true"
+            android:inputType="textEmailAddress"
             android:layout_marginTop="50dp"
             android:hint="@string/TextEmail"
             android:drawableStart="@drawable/ic_baseline"
