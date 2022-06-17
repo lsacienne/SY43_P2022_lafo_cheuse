@@ -8,3 +8,11 @@ Our project is named Lafo_cheuse because this app goal is to allow the user to m
 The way Lafo is written comes from the word [*lafo*](http://dictionnaire.sensagent.leparisien.fr/lafo/mg-mg/#google_vignette), a Malagasy word used to talk about expensive items.
 ### Project goal
 Create an Android budget managment app, using the Zero Based Budgeting method.
+
+## How to install ?
+
+To install the project, you should have an Android smartphone with a ** version >= 10.0**. Then :
+
+1. Download the APK in your smartphone
+2. Open it from your smartphone
+3. Validate the installation
