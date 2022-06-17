@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="fragment.view.SettingsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:divider="@drawable/empty_small_divider">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/option_title_theme"
+                android:textColor="@color/orange"
+                android:textSize="24sp"/>
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <RadioGroup
+                android:id="@+id/option_radiobutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/option_light_theme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="@string/option_light"/>
+                <RadioButton
+                    android:id="@+id/option_dark_theme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="@string/option_dark"/>
+                <RadioButton
+                    android:id="@+id/option_system_theme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="@string/option_system_theme"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/option_notfications_display"
+                android:textColor="@color/orange"
+                android:textSize="24sp"/>
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <CheckBox
+                android:id="@+id/option_next_income_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/option_checkbox_nextResource"/>
+
+            <CheckBox
+                android:id="@+id/option_below_sum_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/option_checkbox_alertMe"/>
+
+
+            <EditText
+                android:id="@+id/option_amount_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:hint="@string/option_amount_notification"
+                android:inputType="numberDecimal"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:autofillHints="number"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/option_title_budget"
+                android:textColor="@color/orange"
+                android:textSize="24sp"/>
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                android:text="@string/option_text_reset_time"/>
+
+            <Spinner
+                android:id="@+id/option_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:spinnerMode="dialog"
+                android:contentDescription="@string/option_spinner_day" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/option_title_demonstration"
+                android:textColor="@color/orange"
+                android:textSize="24sp"/>
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="16sp"
+                    android:text="@string/option_text_populate"
+                    android:layout_gravity="start|center_vertical|fill_horizontal"
+                    android:layout_marginEnd="25dp"/>
+
+                <Button
+                    android:id="@+id/option_populate_db_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/yellow"
+                    android:layout_gravity="center_vertical|fill_horizontal"
+                    android:text="@string/option_button_populate" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="16sp"
+                    android:layout_gravity="start|center_vertical|fill_horizontal"
+                    android:text="@string/option_text_delete"
+                    android:layout_marginEnd="10dp"/>
+
+                <Button
+                    android:id="@+id/option_delete_db_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/red"
+                    android:enabled="false"
+                    android:layout_gravity="center_vertical|fill_horizontal"
+                    android:text="@string/option_button_delete" />
+            </GridLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="80dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/optionTitleReferences"
+                android:textColor="@color/orange"
+                android:textSize="24sp"/>
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/optionCC"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/optionIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/optionIcon"
+                android:clickable="true"
+                android:layout_marginTop="5dp"/>
+            
+            <TextView
+                android:id="@+id/optionGithub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/optionGithub"
+                android:clickable="true"
+                android:layout_marginTop="5dp"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

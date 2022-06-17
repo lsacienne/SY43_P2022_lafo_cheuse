@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">Lafo-cheuse</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="chart">Chart</string>
+    <string name="income_expense">Income/Expense</string>
+    <string name="settings">Settings</string>
+    <string name="chart_fragment">Chart Fragment</string>
+    <string name="incomes_and_expenses_fragment">Incomes and Expenses Fragment</string>
+    <string name="settings_fragment">Settings Fragment</string>
+    <string name="display_the_charts">display the charts</string>
+    <string name="budgetNameHolder">Aucun budget à afficher</string>
+    <string name="budgetNameHolderComplete">Budget %1$s %2$s :</string>
+    <string name="no_data_found">Aucune dépense rentrée 😶</string>
+    <string name="budgets">Budgets</string>
+    <string name="home_french">Accueil</string>
+    <string name="expenses_incomes">Dépenses</string>
+    <string name="settings_french">Paramètres</string>
+    <string name="regularIncomeTitle">Revenus mensuels</string>
+    <string name="regularExpensesTitle">Dépenses mensuelles</string>
+    <string name="budgetSetter">Prévoir son budget</string>
+    <string name="budgetTitle">Budget</string>
+    <string name="categoryTitle">Choisissez une catégorie</string>
+    <string name="newCategoryTitle">Nommez votre catégorie</string>
+    <string name="title_activity_budget_setter">BudgetSetterActivity</string>
+    <string name="newIncomeExpenseTitle">Créez votre dépense/revenu</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="sumName">Nom de la somme</string>
+    <string name="sumValue">Somme</string>
+    <string name="ie_date">Date</string>
+    <string name="deleteForever">Effacer définitivement</string>
+    <string name="categoryButton">Choisir la catégorie</string>
+    <string name="questionMarkEmoji">❔</string>
+    <string name="emojiHolder">😃</string>
+    <string name="textHolder">cuck</string>
+    <string name="addNewCategory">Ajouter une nouvelle catégorie</string>
+    <string name="nameCategoryTitle">Nommez votre catégorie</string>
+    <string name="setCategoryName">Indiquez le nom de la catégorie</string>
+    <string name="setCategoryEmoji">Indquez un emoji pour votre catégorie</string>
+    <string name="chooseEmojiHint">Choisissez un emoji…</string>
+    <string name="chooseCategoryTitleHint">Donnez un titre…</string>
+    <string name="confirmButton">Valider</string>
+    <string name="incomeList">Liste des revenus réguliers</string>
+    <string name="ok">OK</string>
+    <string name="switchGraph">Changer de graphique</string>
+    <string name="budgetType">Revenus</string>
+    <string name="silo_background_explication">Fond de la jauge en forme de silo</string>
+    <string name="budget_total_full">Total : %1$.2f €</string>
+    <string name="budget_total_empty">Total : —,— € </string>
+
+    <string name="optionGithub">Projet github disponible à ce <a href='https://github.com/gxfab/SY43_P2022/commits/lafo_cheuse'>lien</a></string>
+    <string name="optionIcon">Icone de l\'application : <a href='https://www.flaticon.com/free-icons/wheat\' title='wheat icons'>Wheat icons created by Freepik - Flaticon</a></string>
+    <string name="optionCC">Tous droits réservés GOBLOT David VIALA Alexandre</string>
+    <string name="optionTitleReferences">Références</string>
+    <string name="option_button_delete">Supprimer</string>
+    <string name="option_text_delete">Supprimer la base de test</string>
+    <string name="option_button_populate">Peupler</string>
+    <string name="option_text_populate">Peupler la base de test</string>
+    <string name="option_title_demonstration">Base de démonstration</string>
+    <string name="option_text_reset_time">Quand souhaitez-vous remettre à zéro le compteur ?</string>
+    <string name="option_title_budget">Budget</string>
+    <string name="option_checkbox_alertMe">M\'alerter quand j\'arrive en dessous d\'une certaine somme dépensée</string>
+    <string name="option_checkbox_nextResource">Rappel de la prochaine source de revenu</string>
+    <string name="option_notfications_display">Affichage des notifications</string>
+    <string name="option_dark">Sombre</string>
+    <string name="option_light">Clair</string>
+    <string name="option_title_theme">Thème</string>
+    <string name="option_spinner_day">Choisir le jour de réinitialisation</string>
+    <string name="option_amount_notification">Somme…</string>
+    <string name="option_system_theme">Thème du système</string>
+    <string name="date">%1$d/%2$d/%3$d</string>
+    <string name="sum">%1$.2f €</string>
+
+</resources>
